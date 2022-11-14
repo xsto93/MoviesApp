@@ -46,7 +46,8 @@
 
 @media screen and (min-width: 375px) {
   .navbar__link {
-    font-size: 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
   }
 
   .navbar__title-content {
