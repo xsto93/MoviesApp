@@ -4,13 +4,17 @@
 }
 
 .navbar__container--coral {
-  background-color: rgb(233, 184, 184) !important;
+  background-color: black !important;
 }
 
 .navbar__title {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.navbar__title--white {
+ color: white !important;
 }
 
 .navbar__title-content {
@@ -31,7 +35,7 @@
 }
 
 .navbar__link--primary {
-  color: white;
+  color: black !important;
 }
 
 .navbar__link:focus,
@@ -42,6 +46,12 @@
 
 .navbar__link:hover {
   color: rgb(77, 77, 235);
+}
+
+@media screen and (min-width: 360px) {
+  .navbar__link--primary {
+    color: white !important;
+  }
 }
 
 @media screen and (min-width: 375px) {

@@ -28,7 +28,7 @@ const Navbar = ({ title }: Props): JSX.Element => {
               xs={24}
               className="navbar__title"
             >
-              <Title id="title" level={2} className="navbar__title-content">
+              <Title id="title" level={2} className="navbar__title-content navbar__title--white">
                 {title}
               </Title>
             </Col>
@@ -41,10 +41,10 @@ const Navbar = ({ title }: Props): JSX.Element => {
             >
               <Menu mode="horizontal" defaultSelectedKeys={['search']} className="navbar__container--coral">
                 <Menu.Item key="search" className='navbar__link'>
-                    <Link to={'search'}>Buscador 🔍</Link>
+                    <Link to={'search'} className='navbar__link--primary'>Buscador 🔍</Link>
                 </Menu.Item>
                 <Menu.Item key="mylist" className='navbar__link'>
-                    <Link to={'mylist'}>Valoradas 👍</Link>
+                    <Link to={'mylist'} className='navbar__link--primary'>Valoradas 👍</Link>
                 </Menu.Item>
               </Menu>
             </Col>

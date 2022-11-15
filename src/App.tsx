@@ -6,6 +6,7 @@ import { QueryClientProvider, QueryClient } from 'react-query'
 import Navbar from './shared/components/navbar/Navbar'
 import MoviesRated from './views/movies-rated/movies-rated'
 import MoviesSearch from './views/movies-search/movies-search'
+import MoviesDetail from './views/movies-detail/movies-detail'
 
 import './App.css'
 
@@ -19,6 +20,7 @@ function App (): JSX.Element {
           <Routes>
             <Route path="/search" element={<MoviesSearch />} />
             <Route path="/mylist" element={<MoviesRated />} />
+            <Route path="/movie/:id" element={<MoviesDetail />} />
             <Route path="*" element={<Navigate to="/search" replace />} />
           </Routes>
         </main>

@@ -1,19 +1,29 @@
 import React from 'react'
 import { Card } from 'antd'
 
+import './movie-card.css'
+
 interface Props {
+  id: string
   title: string
   image: string
-  date?: Date
+  date: string
+  onClick: (id: string) => void
 }
 
-const MovieCard = ({ image, date, title }: Props): JSX.Element => {
-  // const [isRating, setIsRating] = useState<Boolean>(false)
+const MovieCard = ({ id, image, date, title, onClick }: Props): JSX.Element => {
+  const handleOnClick = (event: React.MouseEvent<HTMLImageElement, MouseEvent>): void => {
+    event.preventDefault()
+    onClick(id)
+  }
+
   return (
     <Card
-      size="small"
+      size="default"
+      className='movie__card--rounded'
       cover={
         <img
+          onClick={handleOnClick}
           src={image}
           alt={title}
           loading="lazy"
@@ -22,6 +32,7 @@ const MovieCard = ({ image, date, title }: Props): JSX.Element => {
       hoverable
     >
       <Card.Meta title={title} />
+      <Card.Meta title={date} />
     </Card>
   )
 }

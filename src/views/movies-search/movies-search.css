@@ -4,3 +4,23 @@
     grid-gap: 15px;
     padding: 1rem;
 }
+
+.movies__search {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.movies__search-input {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .movies__search {
+        justify-content: center;
+    }
+    .movies__search-input {
+        width: 50%;
+    }
+  }

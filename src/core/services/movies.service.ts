@@ -1,10 +1,15 @@
-const BASE_URL = 'https://api.themoviedb.org/3/search/movie'
+const SEARCH_URL = 'https://api.themoviedb.org/3/search/movie'
+const POPULAR_URL = 'https://api.themoviedb.org/3/movie/popular'
 
 export async function getMovies (query: string): Promise<any> {
   const apiKey = process.env.REACT_APP_API_KEY ?? ''
-  const queryPath = query !== '' ? `&query=${query}` : ''
-  const url: URL = new URL(`${BASE_URL}?api_key=${apiKey}${queryPath}`)
+  let queryPath = ''
+  let queryUrl = POPULAR_URL
+  if (query !== '') {
+    queryPath = `&query=${query}`
+    queryUrl = SEARCH_URL
+  }
+  const url: URL = new URL(`${queryUrl}?api_key=${apiKey}${queryPath}`)
   const response = await fetch(url)
-
   return await response.json()
 }
