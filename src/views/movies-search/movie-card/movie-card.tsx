@@ -2,6 +2,7 @@ import React from 'react'
 import { Card } from 'antd'
 
 import './movie-card.css'
+import MovieImage from '../movie-image/movie-image'
 
 interface Props {
   id: string
@@ -19,14 +20,13 @@ const MovieCard = ({ id, image, date, title, onClick }: Props): JSX.Element => {
 
   return (
     <Card
-      size="default"
+      size="small"
       className='movie__card--rounded'
       cover={
-        <img
+        <MovieImage
           onClick={handleOnClick}
           src={image}
           alt={title}
-          loading="lazy"
         />
       }
       hoverable

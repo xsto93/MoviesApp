@@ -1,0 +1,13 @@
+
+.movies-detail__image-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.movies-detail__image {
+    width: 300px;
+}

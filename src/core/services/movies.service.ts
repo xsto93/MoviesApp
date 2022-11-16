@@ -1,5 +1,6 @@
 const SEARCH_URL = 'https://api.themoviedb.org/3/search/movie'
 const POPULAR_URL = 'https://api.themoviedb.org/3/movie/popular'
+const GET_URL = 'https://api.themoviedb.org/3/movie/'
 
 export async function getMovies (query: string): Promise<any> {
   const apiKey = process.env.REACT_APP_API_KEY ?? ''
@@ -10,6 +11,14 @@ export async function getMovies (query: string): Promise<any> {
     queryUrl = SEARCH_URL
   }
   const url: URL = new URL(`${queryUrl}?api_key=${apiKey}${queryPath}`)
+  const response = await fetch(url)
+  return await response.json()
+}
+
+export async function getMovie (id: string): Promise<any> {
+  const apiKey = process.env.REACT_APP_API_KEY ?? ''
+
+  const url: URL = new URL(`${GET_URL}/${id}?api_key=${apiKey}`)
   const response = await fetch(url)
   return await response.json()
 }
