@@ -15,5 +15,9 @@ export function useSingleMovie (id: string | undefined): MovieData {
     staleTime: Infinity
   })
 
+  // const saveRateOfMovie = (movieId: number): void => {
+
+  // }
+
   return { movie: data, isLoading }
 }

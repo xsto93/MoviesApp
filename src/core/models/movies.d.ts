@@ -34,7 +34,7 @@ export interface Movie {
   backdrop_path: string
   belongs_to_collection?: BelongsToCollection[]
   budget: number
-  genres: Genres
+  genres: Genres[]
   homepage: string
   id: number
   imdb_id: number
