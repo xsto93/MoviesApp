@@ -1,16 +1,17 @@
 import { useQuery } from 'react-query'
+import { Movie } from '../../core/models/movies'
 import { getMovies } from '../../core/services/movies.service'
+import { refreshTime } from '../utils/constants'
 
 interface Movies {
-  movies: any[] | undefined
+  movies: Movie[] | undefined
   isLoading: Boolean
 }
 
 export function useMovies (criteria: string = ''): Movies {
   const { data, isLoading } = useQuery<any, Error>(['movies', criteria], async () => await getMovies(criteria), {
     placeholderData: [],
-    cacheTime: 3600000,
-    staleTime: Infinity
+    refetchInterval: refreshTime
   })
 
   return { movies: data.results, isLoading }

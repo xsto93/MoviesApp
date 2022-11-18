@@ -55,5 +55,11 @@ export interface Movie {
   video: Boolean
   vote_average: number
   vote_count: number
+  rating?: number
+}
 
+export interface Session {
+  success: Boolean
+  guest_session_id: string
+  expires_at: string
 }

@@ -7,17 +7,13 @@ interface MovieData {
   isLoading: Boolean
 }
 
-export function useSingleMovie (id: string | undefined): MovieData {
+export function useMovie (id: string | undefined, sessionId?: string): MovieData {
   const placeholderData: Movie | undefined = undefined
   const { data, isLoading } = useQuery<Movie, Error>(['movie', id], async () => await getMovie(String(id)), {
     placeholderData,
     cacheTime: 3600000,
     staleTime: Infinity
   })
-
-  // const saveRateOfMovie = (movieId: number): void => {
-
-  // }
 
   return { movie: data, isLoading }
 }

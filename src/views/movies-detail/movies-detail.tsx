@@ -1,21 +1,52 @@
 import React, { useState } from 'react'
-import { Row, Col, Rate, Divider, Tag, Collapse, Button } from 'antd'
+import { Row, Col, Rate, Divider, Tag, Collapse, Button, message } from 'antd'
 
 import { useParams } from 'react-router-dom'
 import MovieImage from '../movies-search/movie-image/movie-image'
-import { useSingleMovie } from '../../shared/hooks/useSingleMovie'
+import { useMovie } from '../../shared/hooks/useMovie'
 
-import { StarFilled, CloseOutlined, SaveOutlined } from '@ant-design/icons'
+import { StarFilled, SaveOutlined } from '@ant-design/icons'
 import './movies-detail.css'
 import MovieDetail from './movie-detail/movie-detail'
+import { useSession } from '../../shared/hooks/useSession'
+import { useMutation } from 'react-query'
+import { rateMovie } from '../../core/services/movies.service'
 
 const MoviesDetail = (): JSX.Element => {
   const { id } = useParams()
-  const { movie } = useSingleMovie(id)
+  const [messageApi, contextHolder] = message.useMessage()
   const [rate, setRate] = useState<number>(0)
+  const data = useSession()
+  const { movie } = useMovie(id)
+  const { mutate } = useMutation(rateMovie, {
+    onSuccess: (): void =>
+      openMessage('success', 'La valoración se ha guardado correctamente'),
+    onError: (): void => openMessage('error', 'Ha habido un error inesperado.')
+  })
+
+  const openMessage = (
+    type: 'error' | 'success' | 'info' | 'warning' | 'loading',
+    message: string
+  ): void => {
+    // tslint:disable-next-line:no-floating-promises
+    messageApi[type]({
+      type,
+      content: message,
+      duration: 2
+    })
+  }
+
+  const handleClick = (): void => {
+    mutate({
+      value: rate,
+      sessionId: String(data?.guest_session_id),
+      movieId: String(id)
+    })
+  }
 
   return (
     <>
+      {contextHolder}
       <Row className="movies-detail__header">
         <Col className="movies-detail__header-title">
           <h1>{movie?.title}</h1>
@@ -74,23 +105,11 @@ const MoviesDetail = (): JSX.Element => {
                 allowClear
                 allowHalf
                 value={rate}
-                onChange={(value: number) => setRate(value)}
+                onChange={(newValue) => setRate(newValue)}
                 count={10}
               />
-            </Col>
-            <Col
-              style={{
-                justifyContent: 'center',
-                display: 'flex',
-                gap: '10px',
-                marginTop: '1rem'
-              }}
-            >
-              <Button icon={<CloseOutlined />} type="link">
-                Atrás
-              </Button>
-              <Button icon={<SaveOutlined />} type="link">
-                Guardar puntuanción
+               <Button icon={<SaveOutlined />} onClick={handleClick} type="link">
+                  Guardar puntuanción
               </Button>
             </Col>
           </Row>

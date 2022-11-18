@@ -31,7 +31,7 @@ const MoviesSearch = (): JSX.Element => {
         <section className="movies__list">
           {movies?.map((movie) => (
             <MovieCard
-              id={movie.id}
+              id={String(movie.id)}
               key={movie.id}
               image={movie.poster_path}
               title={movie.title}
