@@ -6,13 +6,14 @@ import { refreshTime } from '../utils/constants'
 interface Movies {
   movies: Movie[] | undefined
   isLoading: Boolean
+  error: Error | null
 }
 
 export function useMovies (criteria: string = ''): Movies {
-  const { data, isLoading } = useQuery<Movie | any, Error>(['movies', criteria], async () => await getMovies(criteria), {
+  const { data, isLoading, error } = useQuery<Movie | any, Error>(['movies', criteria], async () => await getMovies(criteria), {
     placeholderData: [],
     refetchInterval: refreshTime
   })
 
-  return { movies: data.results, isLoading }
+  return { movies: data.results, isLoading, error }
 }

@@ -11,13 +11,14 @@ import MovieDetail from './movie-detail/movie-detail'
 import { useSession } from '../../shared/hooks/useSession'
 import { useMutation } from 'react-query'
 import { rateMovie } from '../../core/services/movies.service'
+import Error from '../../shared/components/error/error'
 
 const MoviesDetail = (): JSX.Element => {
   const { id } = useParams()
   const [messageApi, contextHolder] = message.useMessage()
   const [rate, setRate] = useState<number>(0)
   const data = useSession()
-  const { movie } = useMovie(id)
+  const { movie, error } = useMovie(id)
   const { mutate } = useMutation(rateMovie, {
     onSuccess: (): void =>
       openMessage('success', 'La valoración se ha guardado correctamente'),
@@ -43,6 +44,8 @@ const MoviesDetail = (): JSX.Element => {
       movieId: String(id)
     })
   }
+
+  if (error !== null) { return <Error /> }
 
   return (
     <>

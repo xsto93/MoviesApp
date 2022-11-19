@@ -5,15 +5,18 @@ import { Input, Row, Spin } from 'antd'
 
 import './movies-search.css'
 import MoviesList from '../movies-list/movies-list'
+import Error from '../../shared/components/error/error'
 
 const MoviesSearch = (): JSX.Element => {
   const [criteria, setCriteria] = useState<string>('')
-  const { movies, isLoading } = useMovies(criteria)
+  const { movies, isLoading, error } = useMovies(criteria)
   const navigate = useNavigate()
 
   const navigateToMovieDetail = (id: string): void => {
     navigate(`/movie/${id}`)
   }
+
+  if (error !== null) { return <Error /> }
 
   return (
     <>

@@ -59,9 +59,9 @@ export interface Movie {
 }
 
 export interface RatedMovieSuccess {
-  status_code: number;
-  status_message: string;
-  success: Boolean;
+  status_code: number
+  status_message: string
+  success: Boolean
 }
 
 export interface Session {
