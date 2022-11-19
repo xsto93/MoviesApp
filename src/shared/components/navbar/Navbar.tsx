@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { Row, Col, Layout, Typography, Menu } from 'antd'
 
-import './navbar.css'
+import './Navbar.css'
 
 const { string } = PropTypes
 const { Header } = Layout
