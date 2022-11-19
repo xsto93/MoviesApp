@@ -1,10 +1,14 @@
+.ant-menu-submenu-popup > .ant-menu {
+  background-color: var(--main-bg-color);
+}
+
 .navbar__container {
   position: relative;
   height:100%;
 }
 
-.navbar__container--coral {
-  background-color: black !important;
+.navbar__container--dark {
+  background-color: var(--main-bg-color) !important;
 }
 
 .navbar__title {
@@ -14,7 +18,7 @@
 }
 
 .navbar__title--white {
- color: white !important;
+ color: var(--main-text-color--primary) !important;
 }
 
 .navbar__title-content {
@@ -35,7 +39,7 @@
 }
 
 .navbar__link--primary {
-  color: black !important;
+  color: var(--main-text-color--primary) !important;
 }
 
 .navbar__link:focus,
@@ -48,11 +52,6 @@
   color: rgb(77, 77, 235);
 }
 
-@media screen and (min-width: 360px) {
-  .navbar__link--primary {
-    color: white !important;
-  }
-}
 
 @media screen and (min-width: 375px) {
   .navbar__link {

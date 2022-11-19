@@ -29,7 +29,10 @@
 }
 
 .movies-detail__header-tags--rounded {
-    border-radius: 1rem;
+    border-radius: 0.75rem;
+    color: var(--main-text-color--primary);
+    background-color: var(--main-bg-color) ;
+    font-weight: 500;
 }
 
 .movies-detail__image-container {
@@ -53,9 +56,11 @@
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 0.5rem;
     width: 100%;
+    border: 1px solid var(--main-text-color--secondary);
+    border-radius: 5px;
 }
 
 
@@ -87,8 +92,8 @@
     .movies-detail__rate-section {
         flex-direction: column;
         box-sizing: border-box;
-        align-content: flex-start;
-        justify-content: flex-start;
+        align-content: center;
+        justify-content: space-between;
         padding: 0.5rem;
         width: 100%;
     }

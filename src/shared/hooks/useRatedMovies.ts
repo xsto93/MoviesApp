@@ -12,7 +12,7 @@ export function useRatedMovies (): Movies {
   const queryClient = useQueryClient()
   const sessionId: Session | undefined = queryClient.getQueryData(['sessionId'])
 
-  const { data, isLoading } = useQuery<any, Error>(['ratedMovies'], async () => await getRatedMovies(sessionId), {
+  const { data, isLoading } = useQuery<Session | any, Error>(['ratedMovies'], async () => await getRatedMovies(sessionId), {
     placeholderData: [],
     refetchInterval: refreshTime
   })

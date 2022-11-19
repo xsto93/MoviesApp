@@ -25,7 +25,17 @@ const MovieDetail = ({ movie }: Props): JSX.Element => {
         </Descriptions.Item>
         <Descriptions.Item label="Revenue">{movie?.revenue}</Descriptions.Item>
         <Descriptions.Item label="Status">
-          {<Tag color={String(movie?.status).toLocaleLowerCase() === 'released' ? 'green' : 'red'}>{movie?.status}</Tag>}
+          {
+            <Tag
+              color={
+                String(movie?.status).toLocaleLowerCase() === 'released'
+                  ? 'green'
+                  : 'red'
+              }
+            >
+              {movie?.status}
+            </Tag>
+          }
         </Descriptions.Item>
         <Descriptions.Item label="Runtime">{movie?.runtime}</Descriptions.Item>
         <Descriptions.Item label="Vote average">

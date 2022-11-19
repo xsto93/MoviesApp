@@ -3,9 +3,8 @@ import { useMovies } from '../../shared/hooks/useMovies'
 import { useNavigate } from 'react-router-dom'
 import { Input, Row, Spin } from 'antd'
 
-import MovieCard from './movie-card/movie-card'
-
 import './movies-search.css'
+import MoviesList from '../movies-list/movies-list'
 
 const MoviesSearch = (): JSX.Element => {
   const [criteria, setCriteria] = useState<string>('')
@@ -28,18 +27,7 @@ const MoviesSearch = (): JSX.Element => {
         />
       </Row>
       <Spin spinning={Boolean(isLoading)}>
-        <section className="movies__list">
-          {movies?.map((movie) => (
-            <MovieCard
-              id={String(movie.id)}
-              key={movie.id}
-              image={movie.poster_path}
-              title={movie.title}
-              date={movie.release_date}
-              onClick={navigateToMovieDetail}
-            />
-          ))}
-        </section>
+        <MoviesList movies={movies} onClick={navigateToMovieDetail}/>
       </Spin>
     </>
   )

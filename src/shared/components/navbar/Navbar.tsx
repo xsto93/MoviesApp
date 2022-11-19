@@ -18,7 +18,7 @@ const Navbar = ({ title }: Props): JSX.Element => {
   return (
     <Row justify="space-between">
       <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-        <Header className='navbar__container navbar__container--coral'>
+        <Header className='navbar__container navbar__container--dark'>
           <Row justify="center">
             <Col
               xl={6}
@@ -39,7 +39,7 @@ const Navbar = ({ title }: Props): JSX.Element => {
               sm={24}
               xs={24}
             >
-              <Menu mode="horizontal" defaultSelectedKeys={['search']} className="navbar__container--coral">
+              <Menu mode="horizontal" defaultSelectedKeys={['search']} className="navbar__container--dark">
                 <Menu.Item key="search" className='navbar__link'>
                     <Link to={'search'} className='navbar__link--primary'>Buscador 🔍</Link>
                 </Menu.Item>

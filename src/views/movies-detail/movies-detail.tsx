@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Row, Col, Rate, Divider, Tag, Collapse, Button, message } from 'antd'
 
 import { useParams } from 'react-router-dom'
-import MovieImage from '../movies-search/movie-image/movie-image'
+import MovieImage from '../movies-list/movie-image/movie-image'
 import { useMovie } from '../../shared/hooks/useMovie'
 
 import { StarFilled, SaveOutlined } from '@ant-design/icons'

@@ -58,6 +58,12 @@ export interface Movie {
   rating?: number
 }
 
+export interface RatedMovieSuccess {
+  status_code: number;
+  status_message: string;
+  success: Boolean;
+}
+
 export interface Session {
   success: Boolean
   guest_session_id: string

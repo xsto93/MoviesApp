@@ -9,7 +9,7 @@ interface Movies {
 }
 
 export function useMovies (criteria: string = ''): Movies {
-  const { data, isLoading } = useQuery<any, Error>(['movies', criteria], async () => await getMovies(criteria), {
+  const { data, isLoading } = useQuery<Movie | any, Error>(['movies', criteria], async () => await getMovies(criteria), {
     placeholderData: [],
     refetchInterval: refreshTime
   })
