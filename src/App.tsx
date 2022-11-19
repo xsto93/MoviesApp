@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
-import Navbar from './shared/components/navbar/navbar'
+import Navbar from './shared/components/navbar/Navbar'
 import MoviesRated from './views/movies-rated/movies-rated'
 import MoviesSearch from './views/movies-search/movies-search'
 import MoviesDetail from './views/movies-detail/movies-detail'
