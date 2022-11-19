@@ -1,0 +1,67 @@
+.ant-menu-submenu-popup > .ant-menu {
+  background-color: var(--main-bg-color);
+}
+
+.navbar__container {
+  position: relative;
+  height:100%;
+}
+
+.navbar__container--dark {
+  background-color: var(--main-bg-color) !important;
+}
+
+.navbar__title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar__title--white {
+ color: var(--main-text-color--primary) !important;
+}
+
+.navbar__title-content {
+  font-size: 1.5rem !important;
+}
+
+.navbar__links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 0 0.5rem 0;
+}
+
+.navbar__link {
+  margin-right: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.navbar__link--primary {
+  color: var(--main-text-color--primary) !important;
+}
+
+.navbar__link:focus,
+.navbar__link:active
+{
+  color: rgb(3, 3, 3);
+}
+
+.navbar__link:hover {
+  color: rgb(77, 77, 235);
+}
+
+
+@media screen and (min-width: 375px) {
+  .navbar__link {
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .navbar__title-content {
+    font-size: 2rem !important;
+  }
+}
+
+

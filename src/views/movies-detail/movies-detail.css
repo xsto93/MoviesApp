@@ -1,0 +1,106 @@
+
+.movies-detail__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.movies-detail__header-title {
+    display: flex;
+    flex-grow: 1;
+}
+
+.movies-detail__header-stars {
+    display: flex;
+    flex-grow: 1;
+}
+
+.movies-detail__header-stars--bold {
+    font-size: larger;
+    font-weight: 700;
+}
+
+.movies-detail__header-tags {
+    display: flex;
+    flex-grow: 1;
+    margin-top: 0.5rem;
+}
+
+.movies-detail__header-tags--rounded {
+    border-radius: 0.75rem;
+    color: var(--main-text-color--primary);
+    background-color: var(--main-bg-color) ;
+    font-weight: 500;
+}
+
+.movies-detail__image-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.movies-detail__image {
+    width: 250px;
+}
+
+.movies-detail__descriptions {
+    padding: 0.5rem;
+}
+
+.movies-detail__rate-section {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    width: 100%;
+    border: 1px solid var(--main-text-color--secondary);
+    border-radius: 5px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .movies-detail__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 1rem;
+    }
+    
+    .movies-detail__header-title {
+        flex-grow: 2;
+        width: 100%;
+    }
+    
+    .movies-detail__header-tags {
+        flex-grow: 1;
+    }
+
+    .movies-detail__header-stars {
+        flex-grow: 1;
+    }
+
+    .movies-detail__image {
+        width: 300px;
+    }
+
+    .movies-detail__rate-section {
+        flex-direction: column;
+        box-sizing: border-box;
+        align-content: center;
+        justify-content: space-between;
+        padding: 0.5rem;
+        width: 100%;
+    }
+
+    .movies-detail__rate-section-subtitle {
+        display: inline;
+        margin-right: 0.5rem;
+    }
+    
+}

@@ -2,9 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# API KEY
+You must create an .env file with the property REACT_APP_API_KEY=<Your key> in the root of the project.
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm run lint:fix`
+
+Fix eslint problems
 
 ### `npm start`
 

@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
-function App() {
+import { QueryClientProvider, QueryClient } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+
+import Navbar from './shared/components/navbar/navbar'
+import MoviesRated from './views/movies-rated/movies-rated'
+import MoviesSearch from './views/movies-search/movies-search'
+import MoviesDetail from './views/movies-detail/movies-detail'
+
+import './App.css'
+
+function App (): JSX.Element {
+  const queryClient = new QueryClient()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Navbar title='MoviesApp' />
+        <main className='main__layout'>
+          <Routes>
+            <Route path="/search" element={<MoviesSearch />} />
+            <Route path="/mylist" element={<MoviesRated />} />
+            <Route path="/movie/:id" element={<MoviesDetail />} />
+            <Route path="*" element={<Navigate to="/search" replace />} />
+          </Routes>
+        </main>
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={true}/>
+    </QueryClientProvider>
+  )
 }
 
-export default App;
+export default App
